@@ -1,0 +1,8 @@
+.env
+.vscode/
+coverage/
+cov/
+lcov/
+/config/secret.json
+/node_modules
+/yarn.lock

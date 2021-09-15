@@ -1,0 +1,12 @@
+{
+  "name": "lhwdev-bot",
+  "version": "1.0.0",
+  "description": "The bot born by lhwdev.",
+  "main": "deps.ts",
+  "repository": "https://github.com/lhwdev/discord-lhwdev-bot",
+  "author": "lhwdev",
+  "license": "MIT",
+  "scripts": {
+    "main": "deno --allow-all --config ./deno.json ./src/deps.ts"
+  }
+}

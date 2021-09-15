@@ -1,0 +1,32 @@
+{
+  "$schema": "https://cdn.deno.land/deno/versions/v1.14.0/raw/cli/schemas/config-file.v1.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "allowJs": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitOverride": true,
+    "resolveJsonModule": true
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"],
+      "include": [
+        "no-extra-semi"
+      ]
+    }
+  },
+  "fmt": {
+    "files": {
+      "include": [
+        "src/"
+      ]
+    },
+    "options": {
+      "useTabs": false,
+      "lineWidth": 80,
+      "indentWidth": 2,
+      "singleQuote": true
+    }
+  }
+}
