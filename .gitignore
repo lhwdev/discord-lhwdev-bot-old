@@ -3,6 +3,6 @@
 coverage/
 cov/
 lcov/
-/config/secret.json
+/config/secret.ts
 /node_modules
 /yarn.lock

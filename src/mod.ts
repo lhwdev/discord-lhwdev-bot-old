@@ -1,1 +1,1 @@
-import './bot-main.ts'
+import './bot-main.ts';

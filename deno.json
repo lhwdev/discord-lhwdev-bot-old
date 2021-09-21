@@ -1,25 +1,28 @@
 {
   "$schema": "https://cdn.deno.land/deno/versions/v1.14.0/raw/cli/schemas/config-file.v1.json",
+  "include": [
+    "src/",
+    "config/"
+  ],
   "compilerOptions": {
-    "module": "commonjs",
     "allowJs": true,
     "strict": true,
+
     "noImplicitAny": false,
     "noImplicitOverride": true,
-    "resolveJsonModule": true
+    "experimentalDecorators": true
   },
   "lint": {
     "rules": {
       "tags": ["recommended"],
-      "include": [
-        "no-extra-semi"
-      ]
+      "include": []
     }
   },
   "fmt": {
     "files": {
       "include": [
-        "src/"
+        "src/",
+        "config/"
       ]
     },
     "options": {
