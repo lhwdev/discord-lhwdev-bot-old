@@ -15,7 +15,10 @@
   "lint": {
     "rules": {
       "tags": ["recommended"],
-      "include": []
+      "include": [],
+      "exclude": [
+        "no-explicit-any"
+      ]
     }
   },
   "fmt": {
