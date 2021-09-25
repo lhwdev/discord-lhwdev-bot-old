@@ -1,6 +1,6 @@
-import Command from '../../../api/command/Command.ts';
-import SlashCommandTrigger from '../../../api/command/triggers/SlashCommandTrigger.ts';
-import StringParameter from '../../../api/command/parameter/string.ts';
+import Command from '/api/command/Command.ts';
+import SlashCommandTrigger from '/api/command/triggers/SlashCommandTrigger.ts';
+import StringParameter from '/api/command/parameter/string.ts';
 
 export default {
   triggers: [SlashCommandTrigger],

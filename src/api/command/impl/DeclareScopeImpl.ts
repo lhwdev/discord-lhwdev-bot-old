@@ -1,12 +1,12 @@
-import { Client } from '../../../deps/harmony.ts';
-import { MutableState, mutableStateOf } from '../../../utils/state/state.ts';
-import { CommandEntry } from '../../command/CommandInfo.ts';
+import { Client } from '/deps/harmony.ts';
+import { MutableState, mutableStateOf } from '/utils/state/state.ts';
+import { CommandEntry } from '/api/command/CommandInfo.ts';
 import {
   DeclareScope,
   InvokeScope,
   ParametersDeclaration,
   ParameterValues,
-} from '../../command/CommandScopes.ts';
+} from '/api/command/CommandScopes.ts';
 import InvokeScopeImpl from './InvokeScopeImpl.ts';
 
 ////////

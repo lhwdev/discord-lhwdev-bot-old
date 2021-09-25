@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "main",
+      "problemMatcher": [],
+      "label": "npm: main",
+      "detail": "deno run --allow-all --config ./deno.json --no-check ./src/mod.ts"
+    }
+  ]
+}

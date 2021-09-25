@@ -1,4 +1,4 @@
-import { shallowArrayEquals } from '../utils.ts';
+import { shallowArrayEquals } from '/utils/utils.ts';
 import { observeReadAsync } from './global.ts';
 import { State, StateBase } from './state.ts';
 

@@ -1,8 +1,8 @@
-import Command, { CommandId } from '../Command.ts';
-import { join, resolve } from '../../../deps/path.ts';
-import CommandInfo from '../CommandInfo.ts';
-import { DeclareScopeImpl } from '../../modules/command/DeclareScopeImpl.ts';
-import { Client } from '../../../deps/harmony.ts';
+import Command, { CommandId } from '/api/command/Command.ts';
+import { join, resolve } from '/deps/path.ts';
+import CommandInfo from '/api/command/CommandInfo.ts';
+import { DeclareScopeImpl } from '/api/command/impl/DeclareScopeImpl.ts';
+import { Client } from '/deps/harmony.ts';
 
 export default class CommandLoader {
   constructor(public client: Client, public basePath: string) {

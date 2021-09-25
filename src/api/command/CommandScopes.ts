@@ -1,9 +1,9 @@
-import CommandParameter from './CommandParameter.ts';
-import { State } from '../../utils/state/state.ts';
-import CommandInvocation from './CommandInvocation.ts';
-import { AllMessageOptions, Client, Message } from '../../deps/harmony.ts';
-import CommandLoader from './loader/CommandLoader.ts';
+import { AllMessageOptions, Client, Message } from '/deps/harmony.ts';
+import { State } from '/utils/state/state.ts';
 import CommandInfo, { CommandEntry } from './CommandInfo.ts';
+import CommandParameter from './CommandParameter.ts';
+import CommandInvocation from './CommandInvocation.ts';
+import CommandLoader from '/api/command/loader/CommandLoader.ts';
 
 type UnwrapCommandParameter<P extends CommandParameter<unknown>> = ReturnType<P['parse']>;
 

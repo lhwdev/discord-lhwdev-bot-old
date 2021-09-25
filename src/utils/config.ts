@@ -1,6 +1,6 @@
 import { WatchedImportObjectBuilder } from './WatchedImport.ts';
 import type Secret from '../../config/secret.ts';
-import { resolve } from '../deps/path.ts';
+import { resolve } from '/deps/path.ts';
 
 export type Config = {
   secret: typeof Secret;

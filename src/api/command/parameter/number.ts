@@ -1,4 +1,4 @@
-import CommandParameter, { WrongParameterError } from '../CommandParameter.ts';
+import CommandParameter, { WrongParameterError } from '/api/command/CommandParameter.ts';
 
 /////// localizations
 const intlWrongNumber = {

@@ -1,4 +1,4 @@
-import { DeclareScope } from './CommandScopes.ts';
+import { DeclareScope } from '/api/command/CommandScopes.ts';
 import CommandTrigger from './CommandTrigger.ts';
 
 type Command<R> = {

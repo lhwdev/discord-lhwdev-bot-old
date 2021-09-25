@@ -1,6 +1,6 @@
-import { Client, GatewayIntents } from './deps/harmony.ts';
-import { green } from './deps/color.ts';
-import getConfig from './utils/config.ts';
+import { Client, GatewayIntents } from '/deps/harmony.ts';
+import { green } from '/deps/color.ts';
+import getConfig from '/utils/config.ts';
 
 const config = await getConfig();
 const client = new Client();

@@ -1,4 +1,4 @@
-import { StateBase } from '../state/state.ts';
+import { StateBase } from '/utils/state/state.ts';
 
 export type FileStateOptions = {
   recursive?: boolean;

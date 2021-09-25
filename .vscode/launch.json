@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "request": "launch",
+      "name": "Launch",
+      "type": "pwa-node",
+      "program": "${workspaceFolder}/src/mod.ts",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "deno.exe",
+      "runtimeArgs": [
+        "run",
+        "--config",
+        "./deno.json",
+        "--no-check",
+        "--inspect",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229
+    }
+  ]
+}

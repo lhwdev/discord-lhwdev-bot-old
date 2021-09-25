@@ -1,6 +1,5 @@
 // deno-lint-ignore-file no-explicit-any
-
-import { gradientLerp, Rgb, rgb24 } from '../deps/color.ts';
+import { gradientLerp, Rgb, rgb24 } from '/deps/color.ts';
 
 //////// Colors
 

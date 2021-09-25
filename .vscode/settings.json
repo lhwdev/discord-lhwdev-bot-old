@@ -1,0 +1,19 @@
+{
+  "deno.enable": true,
+  "deno.suggest.imports.hosts": {
+    "https://deno.land": true
+  },
+  "deno.lint": true,
+  "deno.config": "./deno.json",
+  "deno.importMap": "./import_map.json",
+  "editor.defaultFormatter": "denoland.vscode-deno",
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "javascript.preferences.quoteStyle": "double",
+  "typescript.format.semicolons": "insert",
+  "javascript.format.semicolons": "insert",
+  "npm.packageManager": "yarn"
+}

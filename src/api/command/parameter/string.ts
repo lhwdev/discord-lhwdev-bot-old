@@ -1,4 +1,4 @@
-import CommandParameter from '../CommandParameter.ts';
+import CommandParameter from '/api/command/CommandParameter.ts';
 
 export default new class StringParameter implements CommandParameter<string> {
   parse(str: string): string {

@@ -1,15 +1,15 @@
-import { Client } from '../../../deps/harmony.ts';
-import CommandInfo from '../../command/CommandInfo.ts';
+import { Client } from '/deps/harmony.ts';
+import CommandInfo from '/api/command/CommandInfo.ts';
 import {
   CommandTriggerScope,
   DeclareScope,
   InvokeScope,
   ParametersDeclaration,
   ParameterValues,
-} from '../../command/CommandScopes.ts';
-import CommandLoader from '../../command/loader/CommandLoader.ts';
-import InvokeScopeImpl from "../../impl/InvokeScopeImpl.ts";
-import CommandInvocation from "../CommandInvocation.ts";
+} from '/api/command/CommandScopes.ts';
+import CommandLoader from '/api/command/loader/CommandLoader.ts';
+import InvokeScopeImpl from '/api/command/impl/InvokeScopeImpl.ts';
+import CommandInvocation from '/api/command/CommandInvocation.ts';
 
 export default class CommandTriggerScopeImpl implements CommandTriggerScope {
   constructor(public client: Client, public loader: CommandLoader) {}

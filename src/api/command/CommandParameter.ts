@@ -1,4 +1,4 @@
-import { LText } from '../localization/localization.ts';
+import { LText } from '/api/localization/localization.ts';
 
 export default interface CommandParameter<T> {
   parse(str: string): T;
