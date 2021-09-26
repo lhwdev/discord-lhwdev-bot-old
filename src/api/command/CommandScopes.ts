@@ -1,9 +1,10 @@
-import { AllMessageOptions, Client, Message } from '/deps/harmony.ts';
+import { Client, Message } from '/deps/harmony.ts';
 import { State } from '/utils/state/state.ts';
 import CommandInfo, { CommandEntry } from './CommandInfo.ts';
 import CommandParameter from './CommandParameter.ts';
 import CommandInvocation from './CommandInvocation.ts';
-import CommandLoader from '/api/command/loader/CommandLoader.ts';
+import CommandManager from '/api/command/CommandManager.ts';
+import { ReplyOptions } from '/api/message/reply.ts';
 
 type UnwrapCommandParameter<P extends CommandParameter<unknown>> = ReturnType<P['parse']>;
 
@@ -20,22 +21,22 @@ export interface BotScope {
 export interface DeclareScope<T> extends BotScope {
   parameters<P extends ParametersDeclaration>(parameters: () => P): ParameterValues<P>;
 
-  onInvoke(block: (s: InvokeScope<T>) => Promise<T>): void;
+  onInvoke(block: (s: InvokeScope) => Promise<T>): void;
   subcommand<ST>(id: string, block: (s: DeclareScope<ST>) => void): void;
 }
 
-export interface InvokeScope<T> extends BotScope {
+export interface InvokeScope extends BotScope {
   command: CommandEntry;
   invocation: State<CommandInvocation>;
 
   reply(
     block: (
-      reply: (content?: string | AllMessageOptions, option?: AllMessageOptions) => void,
+      reply: (content: string | ReplyOptions) => void,
     ) => void,
   ): Promise<State<Message>>;
 }
 
 export interface CommandTriggerScope extends BotScope {
-  loader: CommandLoader;
-  runCommand<T>(command: CommandInfo<T>, parameters: Record<string, unknown>): T;
+  manager: CommandManager;
+  runCommand<T>(command: CommandInfo<T>, parameters: Record<string, unknown>): Promise<T>;
 }

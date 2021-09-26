@@ -13,4 +13,5 @@ export default Command;
 
 export type CommandId = {
   path: string;
+  identifier: string;
 };

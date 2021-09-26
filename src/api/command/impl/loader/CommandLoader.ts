@@ -3,9 +3,17 @@ import { join, resolve } from '/deps/path.ts';
 import CommandInfo from '/api/command/CommandInfo.ts';
 import { DeclareScopeImpl } from '/api/command/impl/DeclareScopeImpl.ts';
 import { Client } from '/deps/harmony.ts';
+import LoadedCommand from '/api/command/impl/LoadedCommand.ts';
 
-export default class CommandLoader {
-  constructor(public client: Client, public basePath: string) {
+export default class CommandLoader<LC extends LoadedCommand<unknown>> {
+  constructor(
+    public client: Client,
+    public basePath: string,
+    private createLoadedCommand: (
+      info: CommandInfo<unknown>,
+      scope: DeclareScopeImpl<unknown>,
+    ) => LC,
+  ) {
     const watcher = Deno.watchFs(basePath);
     (async () => {
       for await (const event of watcher) {
@@ -18,11 +26,11 @@ export default class CommandLoader {
     })();
   }
 
-  private cache: Map<string, CommandInfo<unknown>> = new Map();
+  private cache: Map<string, LC> = new Map();
 
-  async load(id: CommandId): Promise<CommandInfo<unknown>> {
+  async load(id: CommandId): Promise<LC> {
     const realPath = resolve(join(this.basePath, id.path));
-    const key = realPath;
+    const key = id.identifier;
     const previous = this.cache.get(key);
     if (previous) return previous;
 
@@ -32,12 +40,19 @@ export default class CommandLoader {
     const scope = new DeclareScopeImpl(this.client);
     command.declare(scope);
 
+    const entry = scope.getEntry();
     const info: CommandInfo<unknown> = {
+      id,
       command,
-      entry: scope.getEntry(),
+      entry,
     };
+    const loaded = this.createLoadedCommand(info, scope);
 
-    this.cache.set(key, info);
-    return info;
+    this.cache.set(key, loaded);
+    return loaded;
+  }
+
+  getCache(id: CommandId): LC | null {
+    return this.cache.get(id.identifier) ?? null;
   }
 }

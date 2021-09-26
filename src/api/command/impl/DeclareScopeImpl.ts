@@ -7,7 +7,6 @@ import {
   ParametersDeclaration,
   ParameterValues,
 } from '/api/command/CommandScopes.ts';
-import InvokeScopeImpl from './InvokeScopeImpl.ts';
 
 ////////
 
@@ -16,7 +15,7 @@ export class DeclareScopeImpl<T> implements DeclareScope<T> {
   private mParameters!: ParametersDeclaration;
   private mSubcommands: Record<string, DeclareScopeImpl<unknown>> = {};
   private entry?: CommandEntry;
-  public onInvokeBlock!: (s: InvokeScope<T>) => Promise<T>;
+  public onInvokeBlock!: (s: InvokeScope) => Promise<T>;
 
   constructor(public client: Client) {}
 
@@ -29,8 +28,8 @@ export class DeclareScopeImpl<T> implements DeclareScope<T> {
     return values.value as ParameterValues<P>;
   }
 
-  onInvoke(_block: (s: InvokeScope<T>) => Promise<T>) {
-    this.onInvokeBlock = _block;
+  onInvoke(block: (s: InvokeScope) => Promise<T>) {
+    this.onInvokeBlock = block;
   }
 
   subcommand<ST>(id: string, block: (s: DeclareScope<ST>) => void): void {
@@ -54,12 +53,6 @@ export class DeclareScopeImpl<T> implements DeclareScope<T> {
     this.entry = entry;
     return entry;
   }
-
-  async invoke(parameters: Record<string, unknown>): Promise<T> {
-    this.parameterValues.params = parameters;
-    const scope = new InvokeScopeImpl<T>(this.client, this.getEntry());
-    return await this.onInvokeBlock(scope);
-  }
 }
 
 function stubParameterInputs(declaration: ParametersDeclaration) {
@@ -70,7 +63,7 @@ function stubParameterInputs(declaration: ParametersDeclaration) {
   });
 }
 
-type ParametersValueHelper = {
+export type ParametersValueHelper = {
   params: Record<string, unknown>;
   value: ParameterValues<ParametersDeclaration>;
 };

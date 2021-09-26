@@ -10,6 +10,8 @@ export class StateObserver<T> implements AsyncIterable<T> {
 
   constructor(private state: State<T>) {}
 
+  
+  // deno-lint-ignore require-await
   async *[Symbol.asyncIterator](): AsyncIterator<T> {
     const state = this.state;
 

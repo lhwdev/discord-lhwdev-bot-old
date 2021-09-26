@@ -1,5 +1,9 @@
 import { resolve } from '/deps/path.ts';
-import { FileStateOptions, ObservedFileState, observedFileStateOf } from '/utils/fs-state/fileState.ts';
+import {
+  FileStateOptions,
+  ObservedFileState,
+  observedFileStateOf,
+} from '/utils/fs-state/fileState.ts';
 import { Logger } from './log.ts';
 
 const logger = new Logger('WatchedImport', 0x2222aa);

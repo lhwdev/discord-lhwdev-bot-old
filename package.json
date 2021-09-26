@@ -9,7 +9,7 @@
   "scripts": {
     "main": "deno run --allow-all --config ./deno.json --import-map ./import-map.json --no-check ./src/mod.ts",
     "debug": "deno run --inspect-brk --allow-all --config ./deno.json --import-map ./import-map.json --no-check ./src/mod.ts",
-    "fmt": "deno fmt --config ./deno.json --import-map ./import-map.json",
-    "lint": "deno lint --config ./deno.json --import-map ./import-map.json"
+    "fmt": "deno fmt --config ./deno.json",
+    "lint": "deno lint --config ./deno.json"
   }
 }
